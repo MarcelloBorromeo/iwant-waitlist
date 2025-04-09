@@ -51,13 +51,13 @@ const WaitlistForm = () => {
     setForm(prev => ({ ...prev, loading: true }));
     
     try {
-      // Insert data into Supabase
+      // Insert data into Supabase with correct column name (phone_num instead of phone)
       const { error } = await supabase
         .from('iwant-waitlist')
         .insert([
           { 
             email: form.email, 
-            phone: form.phone || null,
+            phone_num: form.phone || null,
             created_at: new Date().toISOString() 
           }
         ]);
