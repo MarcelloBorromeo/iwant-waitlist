@@ -17,9 +17,7 @@ const Index = () => {
           <h1 className="text-3xl md:text-5xl font-bold mb-3 text-gray-900">
             iwant_
           </h1>
-          <p className="text-lg md:text-xl text-gray-700 max-w-lg mx-auto">
-            Your personal AI food guide that knows what you want before you do
-          </p>
+          <p className="text-lg md:text-xl text-gray-700 max-w-lg mx-auto">Your personal AI food guide that knows what you want before you do.</p>
         </div>
         
         {/* Main section with form */}
