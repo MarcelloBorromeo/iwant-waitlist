@@ -1,13 +1,15 @@
+
 import { useState, useEffect } from "react";
 import WaitlistForm from "@/components/WaitlistForm";
 import FeatureCard from "@/components/FeatureCard";
 import { SearchIcon, ScrollTextIcon, UserIcon } from "lucide-react";
+
 const Index = () => {
   const [mounted, setMounted] = useState(false);
   const [features] = useState([{
     icon: <SearchIcon size={24} />,
     title: "Intelligent Search",
-    description: "Discover restaurants that match your preferences and dietary requirements."
+    description: "Discover restaurants that match your preferences and dietary requirements, down to the calorie."
   }, {
     icon: <ScrollTextIcon size={24} />,
     title: "Smart Menu Builder",
@@ -17,9 +19,11 @@ const Index = () => {
     title: "Personal Agent",
     description: "Your dedicated food companion that learns your taste and provides perfect recommendations."
   }]);
+
   useEffect(() => {
     setMounted(true);
   }, []);
+
   return <div className="min-h-screen flex flex-col p-4 md:p-8 bg-gradient-to-br from-crave-lilac via-crave-blue-light to-crave-lilac bg-size-200 animate-gradient-shift-enhanced">      
       <div className="container max-w-4xl mx-auto relative z-10">
         {/* Logo in top left */}
@@ -59,4 +63,5 @@ const Index = () => {
       </footer>
     </div>;
 };
+
 export default Index;
