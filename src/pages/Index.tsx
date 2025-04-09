@@ -25,9 +25,7 @@ const Index = () => {
           <div className="order-2 md:order-1">
             <div className="bg-white/80 backdrop-blur-sm rounded-lg p-6 shadow-sm border border-gray-100">
               <h2 className="text-xl md:text-2xl font-semibold mb-6 text-gray-900">Join our exclusive waitlist</h2>
-              <p className="text-gray-600 mb-6">
-                Be among the first to experience a revolutionary way to discover food that's perfectly matched to your tastes.
-              </p>
+              <p className="text-gray-600 mb-6">Be among the first to experience a revolutionary way to perfect your nutrition habits that's perfectly matched to your tastes.</p>
               <WaitlistForm />
             </div>
           </div>
