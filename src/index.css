@@ -100,6 +100,11 @@
   animation: gradient-shift 15s ease infinite;
 }
 
+/* Enhanced gradient animation */
+.bg-size-200 {
+  background-size: 200% 200%;
+}
+
 @keyframes gradient-shift {
   0% {
     background-position: 0% 50%;
@@ -112,3 +117,26 @@
   }
 }
 
+/* Enhanced animation with more pronounced movement */
+@keyframes gradient-shift-enhanced {
+  0% {
+    background-position: 0% 0%;
+  }
+  25% {
+    background-position: 100% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  75% {
+    background-position: 0% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+/* Add animation class */
+.animate-gradient-shift-enhanced {
+  animation: gradient-shift-enhanced 10s ease infinite;
+}

@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -119,14 +118,29 @@ export default {
 					'50%': {
 						opacity: '0.8'
 					}
-				}
+				},
+				'gradient-shift-enhanced': {
+					'0%, 100%': {
+						backgroundPosition: '0% 0%'
+					},
+					'25%': {
+						backgroundPosition: '100% 0%'
+					},
+					'50%': {
+						backgroundPosition: '100% 100%'
+					},
+					'75%': {
+						backgroundPosition: '0% 100%'
+					}
+				},
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'gradient-shift': 'gradient-shift 15s ease infinite',
 				'float': 'float 6s ease-in-out infinite',
-				'pulse-soft': 'pulse-soft 3s ease-in-out infinite'
+				'pulse-soft': 'pulse-soft 3s ease-in-out infinite',
+				'gradient-shift-enhanced': 'gradient-shift-enhanced 10s ease infinite',
 			}
 		}
 	},

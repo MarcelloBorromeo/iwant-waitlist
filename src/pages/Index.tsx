@@ -1,13 +1,18 @@
+
 import { useState, useEffect } from "react";
 import WaitlistForm from "@/components/WaitlistForm";
 import FeatureCard from "@/components/FeatureCard";
 import { SearchIcon, ScrollTextIcon, UserIcon } from "lucide-react";
+
 const Index = () => {
   const [mounted, setMounted] = useState(false);
+  
   useEffect(() => {
     setMounted(true);
   }, []);
-  return <div className="min-h-screen flex flex-col items-center justify-center p-4 md:p-8 bg-gradient-to-br from-crave-lilac/40 to-crave-blue/40">      
+  
+  return (
+    <div className="min-h-screen flex flex-col items-center justify-center p-4 md:p-8 bg-gradient-to-br from-crave-lilac via-crave-blue-light to-crave-lilac bg-size-200 animate-gradient-shift-enhanced">      
       <div className="container max-w-4xl mx-auto relative z-10">
         {/* Header */}
         <div className="text-center mb-12">
@@ -20,24 +25,12 @@ const Index = () => {
           <p className="text-lg md:text-xl text-gray-700 max-w-lg mx-auto">Your personal food algorithm made by humans, for humans.</p>
         </div>
         
-        {/* Main section with form */}
-        <div className="grid md:grid-cols-2 gap-8 items-center mb-12">
-          <div className="order-2 md:order-1">
-            <div className="bg-white/80 backdrop-blur-sm rounded-lg p-6 shadow-sm border border-gray-100">
-              <h2 className="text-xl md:text-2xl font-semibold mb-6 text-gray-900">Join our exclusive waitlist</h2>
-              <p className="text-gray-600 mb-6">Be among the first to experience a revolutionary way to perfect your nutrition habits that's perfectly matched to your tastes.</p>
-              <WaitlistForm />
-            </div>
-          </div>
-          
-          <div className="order-1 md:order-2 text-center md:text-left">
-            <h2 className="text-2xl font-bold mb-4 text-gray-900 md:text-4xl">End food decision fatigue for good.</h2>
-            <p className="text-gray-700 mb-6">The iwant_ algorithm adapts your tastes and dietary needs, making healthy eating effortless and enjoyable. </p>
-            <div className="flex flex-wrap justify-center md:justify-start gap-2 mb-4">
-              
-              
-              
-            </div>
+        {/* Main section with form - now centered and horizontal */}
+        <div className="max-w-3xl mx-auto mb-16">
+          <div className="bg-white/80 backdrop-blur-sm rounded-lg p-6 md:p-8 shadow-sm border border-gray-100">
+            <h2 className="text-xl md:text-2xl font-semibold mb-6 text-gray-900">Join our exclusive waitlist</h2>
+            <p className="text-gray-600 mb-6">Be among the first to experience a revolutionary way to perfect your nutrition habits that's perfectly matched to your tastes.</p>
+            <WaitlistForm />
           </div>
         </div>
         
@@ -56,6 +49,8 @@ const Index = () => {
       <footer className="w-full text-center py-4 text-gray-600 text-sm">
         <p>© 2025 iwant_. All rights reserved.</p>
       </footer>
-    </div>;
+    </div>
+  );
 };
+
 export default Index;
