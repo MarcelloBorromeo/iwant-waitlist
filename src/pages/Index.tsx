@@ -38,7 +38,7 @@ const Index = () => {
         {/* Main section with form - now centered and horizontal */}
         <div className="max-w-3xl mx-auto mb-16">
           <div className="bg-white/80 backdrop-blur-sm rounded-lg p-6 md:p-8 shadow-sm border border-gray-100">
-            <h2 className="text-xl md:text-2xl font-semibold mb-6 text-gray-900 text-center">join our waitlist.</h2>
+            <h2 className="text-xl md:text-2xl font-semibold mb-6 text-gray-900 text-center">join our waitlist</h2>
             <p className="text-gray-600 mb-6 text-center text-base">built for your body, designed for your life.</p>
             <WaitlistForm />
           </div>
