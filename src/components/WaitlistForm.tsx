@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 import { CheckIcon, ArrowRightIcon } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
+import { supabase } from "@/lib/supabase";
 
 interface FormState {
   email: string;
@@ -49,14 +50,44 @@ const WaitlistForm = () => {
     
     setForm(prev => ({ ...prev, loading: true }));
     
-    // Simulate API call
-    setTimeout(() => {
+    try {
+      // Insert data into Supabase
+      const { error } = await supabase
+        .from('iwant-waitlist')
+        .insert([
+          { 
+            email: form.email, 
+            phone: form.phone || null,
+            created_at: new Date().toISOString() 
+          }
+        ]);
+      
+      if (error) {
+        console.error("Supabase error:", error);
+        toast({
+          title: "Submission failed",
+          description: "We couldn't add you to the waitlist. Please try again.",
+          variant: "destructive",
+        });
+        setForm(prev => ({ ...prev, loading: false }));
+        return;
+      }
+      
+      // Success
       setForm(prev => ({ ...prev, loading: false, submitted: true }));
       toast({
         title: "Success!",
         description: "You've been added to our waitlist.",
       });
-    }, 1500);
+    } catch (err) {
+      console.error("Error submitting form:", err);
+      toast({
+        title: "Submission failed",
+        description: "We couldn't add you to the waitlist. Please try again.",
+        variant: "destructive",
+      });
+      setForm(prev => ({ ...prev, loading: false }));
+    }
   };
   
   return (
