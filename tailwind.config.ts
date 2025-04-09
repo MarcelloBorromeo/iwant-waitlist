@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -111,6 +112,14 @@ export default {
 						transform: 'translateY(-10px)'
 					}
 				},
+				'gentle-float': {
+					'0%, 100%': {
+						transform: 'translateY(0)'
+					},
+					'50%': {
+						transform: 'translateY(-5px)'
+					}
+				},
 				'pulse-soft': {
 					'0%, 100%': {
 						opacity: '1'
@@ -139,6 +148,7 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'gradient-shift': 'gradient-shift 15s ease infinite',
 				'float': 'float 6s ease-in-out infinite',
+				'gentle-float': 'gentle-float 12s ease-in-out infinite',
 				'pulse-soft': 'pulse-soft 3s ease-in-out infinite',
 				'gradient-shift-enhanced': 'gradient-shift-enhanced 10s ease infinite',
 			}

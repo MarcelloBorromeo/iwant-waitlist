@@ -6,7 +6,7 @@ import { SearchIcon, ScrollTextIcon, UserIcon } from "lucide-react";
 
 const Index = () => {
   const [mounted, setMounted] = useState(false);
-  const [features, setFeatures] = useState([
+  const [features] = useState([
     {
       icon: <SearchIcon size={24} />,
       title: "Intelligent Search",
@@ -27,12 +27,6 @@ const Index = () => {
   useEffect(() => {
     setMounted(true);
   }, []);
-
-  const updateFeature = (index: number, field: "title" | "description", value: string) => {
-    const newFeatures = [...features];
-    newFeatures[index][field] = value;
-    setFeatures(newFeatures);
-  };
 
   return <div className="min-h-screen flex flex-col p-4 md:p-8 bg-gradient-to-br from-crave-lilac via-crave-blue-light to-crave-lilac bg-size-200 animate-gradient-shift-enhanced">      
       <div className="container max-w-4xl mx-auto relative z-10">
@@ -68,9 +62,6 @@ const Index = () => {
                 icon={feature.icon} 
                 title={feature.title} 
                 description={feature.description}
-                onTitleChange={(value) => updateFeature(index, "title", value)}
-                onDescriptionChange={(value) => updateFeature(index, "description", value)}
-                editable
               />
             ))}
           </div>
