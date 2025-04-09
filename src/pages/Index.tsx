@@ -1,27 +1,18 @@
-
 import { useState, useEffect } from "react";
 import WaitlistForm from "@/components/WaitlistForm";
 import FeatureCard from "@/components/FeatureCard";
 import { SearchIcon, ScrollTextIcon, UserIcon } from "lucide-react";
-
 const Index = () => {
   const [mounted, setMounted] = useState(false);
-  
   useEffect(() => {
     setMounted(true);
   }, []);
-  
-  return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-4 md:p-8 bg-gradient-to-br from-crave-lilac/40 to-crave-blue/40">      
+  return <div className="min-h-screen flex flex-col items-center justify-center p-4 md:p-8 bg-gradient-to-br from-crave-lilac/40 to-crave-blue/40">      
       <div className="container max-w-4xl mx-auto relative z-10">
         {/* Header */}
         <div className="text-center mb-12">
           <div className="flex justify-center mb-4">
-            <img 
-              src="/lovable-uploads/60b6bde7-3549-49e9-8ea8-6ed0757bbf47.png" 
-              alt="iwant_ logo" 
-              className="w-20 h-20 mb-2"
-            />
+            <img src="/lovable-uploads/60b6bde7-3549-49e9-8ea8-6ed0757bbf47.png" alt="iwant_ logo" className="w-20 h-20 mb-2" />
           </div>
           <h1 className="text-3xl md:text-5xl font-bold mb-3 text-gray-900">
             iwant_
@@ -51,9 +42,9 @@ const Index = () => {
               iwant_ uses AI to learn your tastes and dietary needs, making healthy eating effortless and enjoyable.
             </p>
             <div className="flex flex-wrap justify-center md:justify-start gap-2 mb-4">
-              <span className="py-1 px-3 text-sm bg-white/50 rounded-full border border-gray-200">Personalized Nutrition</span>
-              <span className="py-1 px-3 text-sm bg-white/50 rounded-full border border-gray-200">Restaurant Discovery</span>
-              <span className="py-1 px-3 text-sm bg-white/50 rounded-full border border-gray-200">AI-Powered</span>
+              
+              
+              
             </div>
           </div>
         </div>
@@ -62,21 +53,9 @@ const Index = () => {
         <div className="mb-10">
           <h2 className="text-xl md:text-2xl font-semibold text-center mb-8 text-gray-900">Core Features</h2>
           <div className="grid md:grid-cols-3 gap-6">
-            <FeatureCard 
-              icon={<SearchIcon size={24} />} 
-              title="Intelligent Search"
-              description="Discover restaurants that match your preferences and dietary requirements."
-            />
-            <FeatureCard 
-              icon={<ScrollTextIcon size={24} />} 
-              title="Smart Menu Builder"
-              description="Create personalized meal plans tailored to your favorite dishes and goals."
-            />
-            <FeatureCard 
-              icon={<UserIcon size={24} />} 
-              title="Personal Agent"
-              description="Your dedicated food companion that learns your taste and provides perfect recommendations."
-            />
+            <FeatureCard icon={<SearchIcon size={24} />} title="Intelligent Search" description="Discover restaurants that match your preferences and dietary requirements." />
+            <FeatureCard icon={<ScrollTextIcon size={24} />} title="Smart Menu Builder" description="Create personalized meal plans tailored to your favorite dishes and goals." />
+            <FeatureCard icon={<UserIcon size={24} />} title="Personal Agent" description="Your dedicated food companion that learns your taste and provides perfect recommendations." />
           </div>
         </div>
       </div>
@@ -85,8 +64,6 @@ const Index = () => {
       <footer className="w-full text-center py-4 text-gray-600 text-sm">
         <p>© 2025 iwant_. All rights reserved.</p>
       </footer>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
