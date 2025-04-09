@@ -34,7 +34,7 @@ const Index = () => {
           
           <div className="order-1 md:order-2 text-center md:text-left">
             <h2 className="text-2xl font-bold mb-4 text-gray-900 md:text-4xl">End food decision fatigue for good.</h2>
-            <p className="text-gray-700 mb-6">The iwant_ algorithm adapts your tastes and dietary needs, making healthy eating effortless and enjoyable.</p>
+            <p className="text-gray-700 mb-6">The iwant_ algorithm adapts your tastes and dietary needs, making healthy eating effortless and enjoyable. Made by humans, for humans.</p>
             <div className="flex flex-wrap justify-center md:justify-start gap-2 mb-4">
               
               
