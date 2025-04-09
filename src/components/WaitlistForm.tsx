@@ -51,8 +51,13 @@ const WaitlistForm = () => {
     setForm(prev => ({ ...prev, loading: true }));
     
     try {
-      // Insert data into Supabase
-      const { error } = await supabase
+      console.log("Submitting to waitlist:", { 
+        email: form.email, 
+        phone_num: form.phone || null 
+      });
+      
+      // Insert data into Supabase with explicit table name
+      const { data, error } = await supabase
         .from('iwant-waitlist')
         .insert([
           { 
@@ -61,6 +66,8 @@ const WaitlistForm = () => {
             created_at: new Date().toISOString() 
           }
         ]);
+      
+      console.log("Supabase response:", { data, error });
       
       if (error) {
         console.error("Supabase error:", error);
@@ -81,9 +88,9 @@ const WaitlistForm = () => {
           errorMessage = "Please fill in all required fields.";
         } else if (error.code === '42501') {
           errorMessage = "Permission error. Please try again.";
-        } else {
-          // Log detailed error for debugging
-          console.log("Detailed error:", JSON.stringify(error));
+        } else if (error.message) {
+          // Show the specific error message from Supabase
+          errorMessage = error.message;
         }
         
         toast({
@@ -96,6 +103,7 @@ const WaitlistForm = () => {
       }
       
       // Success
+      console.log("Successfully added to waitlist!");
       setForm(prev => ({ ...prev, loading: false, submitted: true }));
       toast({
         title: "Success!",
