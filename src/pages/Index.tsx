@@ -45,7 +45,7 @@ const Index = () => {
         
         {/* Features section */}
         <div className="mb-10">
-          <h2 className="text-xl md:text-2xl font-semibold text-center mb-8 text-gray-900">Core Features</h2>
+          <h2 className="text-xl md:text-2xl font-semibold text-center mb-8 text-gray-900">You can look forward to...</h2>
           <div className="grid md:grid-cols-3 gap-6">
             <FeatureCard icon={<SearchIcon size={24} />} title="Intelligent Search" description="Discover restaurants that match your preferences and dietary requirements." />
             <FeatureCard icon={<ScrollTextIcon size={24} />} title="Smart Menu Builder" description="Create personalized meal plans tailored to your favorite dishes and goals." />
