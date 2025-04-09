@@ -60,13 +60,13 @@ const WaitlistForm = () => {
   
   if (form.submitted) {
     return (
-      <div className="text-center space-y-4 p-6 rounded-xl bg-white/30 backdrop-blur-sm border border-white/30 shadow-lg">
-        <div className="mx-auto h-12 w-12 flex items-center justify-center rounded-full bg-green-100">
-          <CheckIcon className="h-6 w-6 text-green-600" />
+      <div className="text-center space-y-4 p-6 rounded-lg bg-white/70 border border-gray-100">
+        <div className="mx-auto h-12 w-12 flex items-center justify-center rounded-full bg-green-50">
+          <CheckIcon className="h-6 w-6 text-green-500" />
         </div>
         <h3 className="text-xl font-medium text-gray-900">Thanks for joining!</h3>
         <p className="text-gray-600">
-          We'll notify you when Crave Companion is ready. Get excited for a personalized culinary journey!
+          We'll notify you when iwant_ is ready. Get excited for a personalized culinary journey!
         </p>
       </div>
     );
@@ -105,13 +105,13 @@ const WaitlistForm = () => {
       
       <Button 
         type="submit" 
-        className="w-full group transition-all duration-300 bg-gradient-to-r from-crave-lilac to-crave-blue hover:shadow-lg"
+        className="w-full transition-all duration-300 bg-gray-900 text-white hover:bg-gray-800"
         disabled={form.loading}
       >
         {form.loading ? "Submitting..." : (
           <>
             Join Waitlist 
-            <ArrowRightIcon className="ml-2 h-4 w-4 inline-block group-hover:translate-x-1 transition-transform" />
+            <ArrowRightIcon className="ml-2 h-4 w-4 inline-block" />
           </>
         )}
       </Button>
