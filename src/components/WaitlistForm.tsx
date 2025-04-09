@@ -51,24 +51,7 @@ const WaitlistForm = () => {
     setForm(prev => ({ ...prev, loading: true }));
     
     try {
-      // Check if email already exists
-      const { data: existingData } = await supabase
-        .from('iwant-waitlist')
-        .select('email')
-        .eq('email', form.email)
-        .maybeSingle();
-      
-      if (existingData) {
-        toast({
-          title: "Already registered",
-          description: "This email is already on our waitlist!",
-          variant: "default",
-        });
-        setForm(prev => ({ ...prev, loading: false, submitted: true }));
-        return;
-      }
-      
-      // Insert data into Supabase with correct column name (phone_num instead of phone)
+      // Insert data into Supabase
       const { error } = await supabase
         .from('iwant-waitlist')
         .insert([
@@ -82,10 +65,11 @@ const WaitlistForm = () => {
       if (error) {
         console.error("Supabase error:", error);
         
-        // More descriptive error messages based on error code
+        // Handle different error cases
         let errorMessage = "We couldn't add you to the waitlist. Please try again.";
         
         if (error.code === '23505') {
+          // Duplicate email error
           errorMessage = "This email is already on our waitlist!";
           setForm(prev => ({ ...prev, loading: false, submitted: true }));
           toast({
@@ -96,7 +80,10 @@ const WaitlistForm = () => {
         } else if (error.code === '23502') {
           errorMessage = "Please fill in all required fields.";
         } else if (error.code === '42501') {
-          errorMessage = "Permission denied. Please try again later.";
+          errorMessage = "Permission error. Please try again.";
+        } else {
+          // Log detailed error for debugging
+          console.log("Detailed error:", JSON.stringify(error));
         }
         
         toast({
