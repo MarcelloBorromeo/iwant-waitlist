@@ -51,6 +51,23 @@ const WaitlistForm = () => {
     setForm(prev => ({ ...prev, loading: true }));
     
     try {
+      // Check if email already exists
+      const { data: existingData } = await supabase
+        .from('iwant-waitlist')
+        .select('email')
+        .eq('email', form.email)
+        .maybeSingle();
+      
+      if (existingData) {
+        toast({
+          title: "Already registered",
+          description: "This email is already on our waitlist!",
+          variant: "default",
+        });
+        setForm(prev => ({ ...prev, loading: false, submitted: true }));
+        return;
+      }
+      
       // Insert data into Supabase with correct column name (phone_num instead of phone)
       const { error } = await supabase
         .from('iwant-waitlist')
@@ -64,9 +81,27 @@ const WaitlistForm = () => {
       
       if (error) {
         console.error("Supabase error:", error);
+        
+        // More descriptive error messages based on error code
+        let errorMessage = "We couldn't add you to the waitlist. Please try again.";
+        
+        if (error.code === '23505') {
+          errorMessage = "This email is already on our waitlist!";
+          setForm(prev => ({ ...prev, loading: false, submitted: true }));
+          toast({
+            title: "Already registered",
+            description: errorMessage,
+          });
+          return;
+        } else if (error.code === '23502') {
+          errorMessage = "Please fill in all required fields.";
+        } else if (error.code === '42501') {
+          errorMessage = "Permission denied. Please try again later.";
+        }
+        
         toast({
           title: "Submission failed",
-          description: "We couldn't add you to the waitlist. Please try again.",
+          description: errorMessage,
           variant: "destructive",
         });
         setForm(prev => ({ ...prev, loading: false }));
@@ -83,7 +118,7 @@ const WaitlistForm = () => {
       console.error("Error submitting form:", err);
       toast({
         title: "Submission failed",
-        description: "We couldn't add you to the waitlist. Please try again.",
+        description: "We couldn't add you to the waitlist. Please try again later.",
         variant: "destructive",
       });
       setForm(prev => ({ ...prev, loading: false }));
