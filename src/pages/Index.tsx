@@ -17,21 +17,21 @@ const Index = () => {
           <h1 className="text-3xl md:text-5xl font-bold mb-3 text-gray-900">
             iwant_
           </h1>
-          <p className="text-lg md:text-xl text-gray-700 max-w-lg mx-auto">Your personal food algorithm made by humans, for humans.</p>
+          <p className="text-lg md:text-xl text-gray-700 max-w-lg mx-auto">your personal food algorithm made by humans, for humans.</p>
         </div>
         
         {/* Main section with form - now centered and horizontal */}
         <div className="max-w-3xl mx-auto mb-16">
           <div className="bg-white/80 backdrop-blur-sm rounded-lg p-6 md:p-8 shadow-sm border border-gray-100">
-            <h2 className="text-xl md:text-2xl font-semibold mb-6 text-gray-900 text-center">Join our exclusive waitlist</h2>
-            <p className="text-gray-600 mb-6 text-center">Be among the first to experience a revolutionary way to perfect your nutrition habits that's perfectly matched to your tastes.</p>
+            <h2 className="text-xl md:text-2xl font-semibold mb-6 text-gray-900 text-center">join our exclusive waitlist</h2>
+            <p className="text-gray-600 mb-6 text-center">be among the first to experience a revolutionary way to perfect your nutrition habits that's perfectly matched to your tastes.</p>
             <WaitlistForm />
           </div>
         </div>
         
         {/* Features section */}
         <div className="mb-10">
-          <h2 className="text-xl md:text-2xl font-semibold text-center mb-8 text-gray-900">You can look forward to...</h2>
+          <h2 className="text-xl md:text-2xl font-semibold text-center mb-8 text-gray-900">you can look forward to...</h2>
           <div className="grid md:grid-cols-3 gap-6">
             <FeatureCard icon={<SearchIcon size={24} />} title="Intelligent Search" description="Discover restaurants that match your preferences and dietary requirements." />
             <FeatureCard icon={<ScrollTextIcon size={24} />} title="Smart Menu Builder" description="Create personalized meal plans tailored to your favorite dishes and goals." />
