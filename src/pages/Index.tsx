@@ -1,9 +1,7 @@
-
 import { useState, useEffect } from "react";
 import WaitlistForm from "@/components/WaitlistForm";
 import FeatureCard from "@/components/FeatureCard";
 import { SearchIcon, ScrollTextIcon, UserIcon } from "lucide-react";
-
 const Index = () => {
   const [mounted, setMounted] = useState(false);
   const [features] = useState([{
@@ -19,16 +17,14 @@ const Index = () => {
     title: "Personal Agent",
     description: "Your dedicated food companion that learns your taste and provides perfect recommendations."
   }]);
-
   useEffect(() => {
     setMounted(true);
   }, []);
-
   return <div className="min-h-screen flex flex-col p-4 md:p-8 bg-gradient-to-br from-crave-lilac via-crave-blue-light to-crave-lilac bg-size-200 animate-gradient-shift-enhanced">      
       <div className="container max-w-4xl mx-auto relative z-10">
         {/* Logo in top left */}
         <div className="absolute top-0 left-0">
-          <img src="/lovable-uploads/60b6bde7-3549-49e9-8ea8-6ed0757bbf47.png" alt="iwant_ logo" className="w-16 h-16" />
+          
         </div>
         
         {/* Header */}
@@ -63,5 +59,4 @@ const Index = () => {
       </footer>
     </div>;
 };
-
 export default Index;
