@@ -1,18 +1,13 @@
-
 import { useState, useEffect } from "react";
 import WaitlistForm from "@/components/WaitlistForm";
 import FeatureCard from "@/components/FeatureCard";
 import { SearchIcon, ScrollTextIcon, UserIcon } from "lucide-react";
-
 const Index = () => {
   const [mounted, setMounted] = useState(false);
-  
   useEffect(() => {
     setMounted(true);
   }, []);
-  
-  return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-4 md:p-8 bg-gradient-to-br from-crave-lilac via-crave-blue-light to-crave-lilac bg-size-200 animate-gradient-shift-enhanced">      
+  return <div className="min-h-screen flex flex-col items-center justify-center p-4 md:p-8 bg-gradient-to-br from-crave-lilac via-crave-blue-light to-crave-lilac bg-size-200 animate-gradient-shift-enhanced">      
       <div className="container max-w-4xl mx-auto relative z-10">
         {/* Header */}
         <div className="text-center mb-12">
@@ -28,8 +23,8 @@ const Index = () => {
         {/* Main section with form - now centered and horizontal */}
         <div className="max-w-3xl mx-auto mb-16">
           <div className="bg-white/80 backdrop-blur-sm rounded-lg p-6 md:p-8 shadow-sm border border-gray-100">
-            <h2 className="text-xl md:text-2xl font-semibold mb-6 text-gray-900">Join our exclusive waitlist</h2>
-            <p className="text-gray-600 mb-6">Be among the first to experience a revolutionary way to perfect your nutrition habits that's perfectly matched to your tastes.</p>
+            <h2 className="text-xl md:text-2xl font-semibold mb-6 text-gray-900 text-center">Join our exclusive waitlist</h2>
+            <p className="text-gray-600 mb-6 text-center">Be among the first to experience a revolutionary way to perfect your nutrition habits that's perfectly matched to your tastes.</p>
             <WaitlistForm />
           </div>
         </div>
@@ -49,8 +44,6 @@ const Index = () => {
       <footer className="w-full text-center py-4 text-gray-600 text-sm">
         <p>© 2025 iwant_. All rights reserved.</p>
       </footer>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
