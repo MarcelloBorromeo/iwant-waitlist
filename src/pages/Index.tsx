@@ -1,33 +1,25 @@
-
 import { useState, useEffect } from "react";
 import WaitlistForm from "@/components/WaitlistForm";
 import FeatureCard from "@/components/FeatureCard";
 import { SearchIcon, ScrollTextIcon, UserIcon } from "lucide-react";
-
 const Index = () => {
   const [mounted, setMounted] = useState(false);
-  const [features] = useState([
-    {
-      icon: <SearchIcon size={24} />,
-      title: "Intelligent Search",
-      description: "Discover restaurants that match your preferences and dietary requirements."
-    },
-    {
-      icon: <ScrollTextIcon size={24} />,
-      title: "Smart Menu Builder",
-      description: "Create personalized meal plans tailored to your favorite dishes and goals."
-    },
-    {
-      icon: <UserIcon size={24} />,
-      title: "Personal Agent",
-      description: "Your dedicated food companion that learns your taste and provides perfect recommendations."
-    }
-  ]);
-
+  const [features] = useState([{
+    icon: <SearchIcon size={24} />,
+    title: "Intelligent Search",
+    description: "Discover restaurants that match your preferences and dietary requirements."
+  }, {
+    icon: <ScrollTextIcon size={24} />,
+    title: "Smart Menu Builder",
+    description: "Create personalized meal plans tailored to your favorite dishes and goals."
+  }, {
+    icon: <UserIcon size={24} />,
+    title: "Personal Agent",
+    description: "Your dedicated food companion that learns your taste and provides perfect recommendations."
+  }]);
   useEffect(() => {
     setMounted(true);
   }, []);
-
   return <div className="min-h-screen flex flex-col p-4 md:p-8 bg-gradient-to-br from-crave-lilac via-crave-blue-light to-crave-lilac bg-size-200 animate-gradient-shift-enhanced">      
       <div className="container max-w-4xl mx-auto relative z-10">
         {/* Logo in top left */}
@@ -47,7 +39,7 @@ const Index = () => {
         <div className="max-w-3xl mx-auto mb-16">
           <div className="bg-white/80 backdrop-blur-sm rounded-lg p-6 md:p-8 shadow-sm border border-gray-100">
             <h2 className="text-xl md:text-2xl font-semibold mb-6 text-gray-900 text-center">join our waitlist.</h2>
-            <p className="text-gray-600 mb-6 text-center">be among the first to experience a revolutionary way to perfect your nutrition habits that's perfectly matched to your tastes.</p>
+            <p className="text-gray-600 mb-6 text-center text-base">Adaptive nutrition. Zero guesswork. All you. </p>
             <WaitlistForm />
           </div>
         </div>
@@ -56,14 +48,7 @@ const Index = () => {
         <div className="mb-10">
           <h2 className="text-xl md:text-2xl font-semibold text-center mb-8 text-gray-900">you can look forward to...</h2>
           <div className="grid md:grid-cols-3 gap-6">
-            {features.map((feature, index) => (
-              <FeatureCard 
-                key={index}
-                icon={feature.icon} 
-                title={feature.title} 
-                description={feature.description}
-              />
-            ))}
+            {features.map((feature, index) => <FeatureCard key={index} icon={feature.icon} title={feature.title} description={feature.description} />)}
           </div>
         </div>
       </div>
@@ -74,5 +59,4 @@ const Index = () => {
       </footer>
     </div>;
 };
-
 export default Index;
