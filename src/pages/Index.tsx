@@ -1,19 +1,48 @@
+
 import { useState, useEffect } from "react";
 import WaitlistForm from "@/components/WaitlistForm";
 import FeatureCard from "@/components/FeatureCard";
 import { SearchIcon, ScrollTextIcon, UserIcon } from "lucide-react";
+
 const Index = () => {
   const [mounted, setMounted] = useState(false);
+  const [features, setFeatures] = useState([
+    {
+      icon: <SearchIcon size={24} />,
+      title: "Intelligent Search",
+      description: "Discover restaurants that match your preferences and dietary requirements."
+    },
+    {
+      icon: <ScrollTextIcon size={24} />,
+      title: "Smart Menu Builder",
+      description: "Create personalized meal plans tailored to your favorite dishes and goals."
+    },
+    {
+      icon: <UserIcon size={24} />,
+      title: "Personal Agent",
+      description: "Your dedicated food companion that learns your taste and provides perfect recommendations."
+    }
+  ]);
+
   useEffect(() => {
     setMounted(true);
   }, []);
-  return <div className="min-h-screen flex flex-col items-center justify-center p-4 md:p-8 bg-gradient-to-br from-crave-lilac via-crave-blue-light to-crave-lilac bg-size-200 animate-gradient-shift-enhanced">      
+
+  const updateFeature = (index: number, field: "title" | "description", value: string) => {
+    const newFeatures = [...features];
+    newFeatures[index][field] = value;
+    setFeatures(newFeatures);
+  };
+
+  return <div className="min-h-screen flex flex-col p-4 md:p-8 bg-gradient-to-br from-crave-lilac via-crave-blue-light to-crave-lilac bg-size-200 animate-gradient-shift-enhanced">      
       <div className="container max-w-4xl mx-auto relative z-10">
+        {/* Logo in top left */}
+        <div className="absolute top-0 left-0">
+          <img src="/lovable-uploads/60b6bde7-3549-49e9-8ea8-6ed0757bbf47.png" alt="iwant_ logo" className="w-16 h-16" />
+        </div>
+        
         {/* Header */}
-        <div className="text-center mb-12">
-          <div className="flex justify-center mb-4">
-            <img src="/lovable-uploads/60b6bde7-3549-49e9-8ea8-6ed0757bbf47.png" alt="iwant_ logo" className="w-20 h-20 mb-2" />
-          </div>
+        <div className="text-center mb-12 pt-16">
           <h1 className="text-3xl md:text-5xl font-bold mb-3 text-gray-900">
             iwant_
           </h1>
@@ -33,9 +62,17 @@ const Index = () => {
         <div className="mb-10">
           <h2 className="text-xl md:text-2xl font-semibold text-center mb-8 text-gray-900">you can look forward to...</h2>
           <div className="grid md:grid-cols-3 gap-6">
-            <FeatureCard icon={<SearchIcon size={24} />} title="Intelligent Search" description="Discover restaurants that match your preferences and dietary requirements." />
-            <FeatureCard icon={<ScrollTextIcon size={24} />} title="Smart Menu Builder" description="Create personalized meal plans tailored to your favorite dishes and goals." />
-            <FeatureCard icon={<UserIcon size={24} />} title="Personal Agent" description="Your dedicated food companion that learns your taste and provides perfect recommendations." />
+            {features.map((feature, index) => (
+              <FeatureCard 
+                key={index}
+                icon={feature.icon} 
+                title={feature.title} 
+                description={feature.description}
+                onTitleChange={(value) => updateFeature(index, "title", value)}
+                onDescriptionChange={(value) => updateFeature(index, "description", value)}
+                editable
+              />
+            ))}
           </div>
         </div>
       </div>
@@ -46,4 +83,5 @@ const Index = () => {
       </footer>
     </div>;
 };
+
 export default Index;
